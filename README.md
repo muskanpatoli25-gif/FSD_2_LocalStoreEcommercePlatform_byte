@@ -4,6 +4,9 @@ Full stack beauty e-commerce website built for the **Arithmatrix AVIP 2026** int
 
 **Twist feature:** "Crypto Cartel" checkout, a dummy **Arith-Coin** payment with a "Blockchain Transaction Verified" animation. No real money or cryptocurrency is used.
 
+🌐 Live Demo
+- Frontend = backend: https://fsd-3-local-store-ecommerce-platfor-woad.vercel.app
+
 ## Tech Stack
 
 - **Frontend:** React (Vite), React Router, Tailwind CSS, Context API
@@ -82,7 +85,6 @@ VITE_API_URL=http://localhost:5000/api
 npm run dev
 ```
 
-Open http://localhost:5173
 
 ## API Endpoints
 
@@ -142,10 +144,6 @@ Errors (400): `Please fill all required fields`, `Cart is empty`, `Invalid item 
 ## Sample Data
 
 32 products across 4 categories (Skincare, Makeup, Haircare, Fragrance), 8 each. Source: `frontend/src/data/products.js`, loaded by `npm run seed`. Every product starts with stock 10.
-
-## Screenshots
-
-Add screenshots here (home, products, product details, cart, checkout, success screen).
 
 ## Notes
 
