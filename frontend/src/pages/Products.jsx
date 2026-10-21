@@ -69,7 +69,7 @@ function Products() {
     <main className="min-h-screen bg-[#FFFAF6] text-[#4A3F3F]">
 
       {/* ================= HEADER ================= */}
-      <section className="max-w-7xl mx-auto px-6 pt-16 pb-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-8 sm:pb-10">
 
         <div className="max-w-2xl">
 
@@ -103,7 +103,7 @@ function Products() {
 
       {/* ================= SEARCH RESULT ================= */}
       {searchQuery && (
-        <div className="max-w-7xl mx-auto px-6 mb-7">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-7">
 
           <div
             className="
@@ -171,9 +171,9 @@ function Products() {
 
 
       {/* ================= CATEGORY FILTER ================= */}
-      <section className="max-w-7xl mx-auto px-6 pb-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-10">
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
 
           {categories.map((category) => {
 
@@ -187,10 +187,9 @@ function Products() {
                 onClick={() => handleCategory(category)}
                 aria-pressed={isActive}
                 className={`
-                  px-5
-                  py-2.5
+                  px-4 py-2 sm:px-5 sm:py-2.5
                   rounded-full
-                  text-sm
+                  text-xs sm:text-sm
                   font-medium
                   transition-all
                   duration-300
@@ -216,7 +215,7 @@ function Products() {
 
 
       {/* ================= COLLECTION INFO ================= */}
-      <section className="max-w-7xl mx-auto px-6 pb-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-6">
 
         <div className="flex items-center justify-between">
 
@@ -240,28 +239,27 @@ function Products() {
 
 
       {/* ================= PRODUCTS ================= */}
-      <section className="max-w-7xl mx-auto px-6 pb-24">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
 
         {/* ---------- LOADING STATE ---------- */}
         {loading && (
           <div
             className="
               grid
-              grid-cols-1
-              sm:grid-cols-2
+              grid-cols-2
               lg:grid-cols-3
               xl:grid-cols-4
-              gap-6
+              gap-3 sm:gap-6
             "
             aria-hidden="true"
           >
             {Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
-                className="rounded-3xl bg-white border border-[#EDE1DC] overflow-hidden animate-pulse"
+                className="rounded-2xl sm:rounded-3xl bg-white border border-[#EDE1DC] overflow-hidden animate-pulse"
               >
                 <div className="aspect-square bg-[#F6E3E0]/60" />
-                <div className="p-5 space-y-3">
+                <div className="p-3 sm:p-5 space-y-3">
                   <div className="h-3 w-1/3 rounded bg-[#EDE1DC]" />
                   <div className="h-4 w-3/4 rounded bg-[#EDE1DC]" />
                   <div className="h-4 w-1/4 rounded bg-[#EDE1DC]" />
@@ -319,11 +317,10 @@ function Products() {
           <div
             className="
               grid
-              grid-cols-1
-              sm:grid-cols-2
+              grid-cols-2
               lg:grid-cols-3
               xl:grid-cols-4
-              gap-6
+              gap-3 sm:gap-6
             "
           >
 
@@ -331,7 +328,7 @@ function Products() {
 
               <div
                 key={product.id}
-                className="animate-fade-up"
+                className="animate-fade-up min-w-0"
                 style={{
                   animationDelay: `${index * 60}ms`,
                 }}
@@ -418,7 +415,7 @@ function Products() {
 
       {/* ================= BOTTOM BRAND MESSAGE ================= */}
       {!loading && !error && products.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 pb-20">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
 
           <div className="border-t border-[#E7DCD7] pt-10 text-center">
 

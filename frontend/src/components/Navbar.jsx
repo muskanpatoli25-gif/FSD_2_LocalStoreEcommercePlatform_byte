@@ -28,7 +28,7 @@ function Navbar() {
   const navLinkClass = ({ isActive }) =>
     `
       relative
-      text-sm
+      text-xs md:text-sm
       font-medium
       transition-colors
       duration-300
@@ -88,7 +88,7 @@ function Navbar() {
           sm:w-32 lg:w-44
           bg-transparent
           px-4
-          py-2
+          py-1.5 sm:py-2
           text-sm
           text-white
           outline-none
@@ -99,7 +99,7 @@ function Navbar() {
       <button
         type="submit"
         className="
-          w-10 h-10
+          w-9 h-9 sm:w-10 sm:h-10
           shrink-0
           flex items-center justify-center
           text-[#FFFAF6]
@@ -151,13 +151,15 @@ function Navbar() {
         shadow-lg
       "
     >
+      {/* MAIN ROW: logo | links | cart (phone par bhi ek hi row) */}
       <nav
         aria-label="Main"
         className="
           max-w-7xl mx-auto
-          px-6
-          h-20
+          px-3 sm:px-6
+          h-14 md:h-20
           flex items-center justify-between
+          gap-2
         "
       >
 
@@ -169,7 +171,7 @@ function Navbar() {
         >
           <div
             className="
-              w-12 h-12
+              w-9 h-9 md:w-12 md:h-12
               rounded-full
               bg-[#F6E3E0]
               flex items-center justify-center
@@ -181,11 +183,11 @@ function Navbar() {
             <img
               src="/images/logo.jpeg"
               alt=""
-              className="w-20 h-20 object-contain"
+              className="w-14 h-14 md:w-20 md:h-20 object-contain"
             />
           </div>
 
-          <div className="hidden sm:block">
+          <div className="hidden md:block">
             <p className="font-serif text-xl leading-none text-[#FFFAF6]">
               VELOURA
             </p>
@@ -197,8 +199,8 @@ function Navbar() {
         </Link>
 
 
-        {/* NAVIGATION (desktop) */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* NAVIGATION (phone par logo aur cart ke beech center me) */}
+        <div className="flex items-center justify-center gap-5 sm:gap-8 max-md:flex-1">
 
           <NavLink to="/" end className={navLinkClass}>
             Home
@@ -226,7 +228,7 @@ function Navbar() {
             to="/cart"
             className="
               relative
-              w-11 h-11
+              w-9 h-9 md:w-11 md:h-11
               rounded-full
               flex items-center justify-center
               bg-[#7A9E88]
@@ -262,6 +264,7 @@ function Navbar() {
               strokeLinecap="round"
               strokeLinejoin="round"
               aria-hidden="true"
+              className="w-[18px] h-[18px] md:w-5 md:h-5"
             >
               <path d="M6 8h12l1 12H5L6 8Z" />
               <path d="M9 8V6a3 3 0 0 1 6 0v2" />
@@ -297,40 +300,16 @@ function Navbar() {
       </nav>
 
 
-      {/* MOBILE NAVIGATION */}
+      {/* MOBILE: sirf search bar niche ek line me (sm se chhoti screen) */}
       <div
         className="
-          md:hidden
-          border-t
-          border-white/10
-          px-6
-          py-3
+          sm:hidden
+          px-3
+          pb-2.5
           bg-[#4A3F3F]
         "
       >
-
-        <nav
-          aria-label="Mobile"
-          className="flex items-center justify-center gap-7"
-        >
-          <NavLink to="/" end className={navLinkClass}>
-            Home
-          </NavLink>
-
-          <NavLink to="/products" className={navLinkClass}>
-            Products
-          </NavLink>
-
-          <NavLink to="/about" className={navLinkClass}>
-            About
-          </NavLink>
-
-    
-        </nav>
-
-        {/* SEARCH (sirf phone par, sm se chhoti screen) */}
-        {searchForm("mobile", `flex sm:hidden mt-3 ${searchBoxClass}`)}
-
+        {searchForm("mobile", `flex ${searchBoxClass}`)}
       </div>
 
     </header>

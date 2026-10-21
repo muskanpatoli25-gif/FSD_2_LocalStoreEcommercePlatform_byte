@@ -56,6 +56,17 @@ function ProductCard({ product }) {
     setAdded(true);
   };
 
+  // Badge ki common (mobile chhoti / desktop pehle jaisi) styling
+  const badgeBase = `
+    absolute
+    top-2 left-2 sm:top-4 sm:left-4
+    text-[9px] sm:text-[10px]
+    uppercase
+    tracking-wider
+    px-2 py-1 sm:px-3 sm:py-1.5
+    rounded-full
+  `;
+
   return (
     <article
       ref={cardRef}
@@ -64,7 +75,7 @@ function ProductCard({ product }) {
         ${isVisible ? "product-visible" : ""}
         group
         bg-white
-        rounded-[1.5rem]
+        rounded-2xl sm:rounded-[1.5rem]
         overflow-hidden
         border border-[#EDE1DC]
         hover:border-[#D8C8C2]
@@ -112,59 +123,28 @@ function ProductCard({ product }) {
 
         {/* Badge: stock ya bestseller */}
         {outOfStock ? (
-          <span className="
-            absolute
-            top-4
-            left-4
-            bg-[#4A3F3F]/90
-            text-white
-            text-[10px]
-            uppercase
-            tracking-wider
-            px-3
-            py-1.5
-            rounded-full
-          ">
+          <span className={`${badgeBase} bg-[#4A3F3F]/90 text-white`}>
             Out of stock
           </span>
         ) : lowStock ? (
-          <span className="
-            absolute
-            top-4
-            left-4
-            bg-[#FFFAF6]/95
-            backdrop-blur-sm
-            text-[#B7894A]
-            text-[10px]
-            uppercase
-            tracking-wider
-            px-3
-            py-1.5
-            rounded-full
-          ">
+          <span
+            className={`${badgeBase} bg-[#FFFAF6]/95 backdrop-blur-sm text-[#B7894A]`}
+          >
             Only {stock} left
           </span>
         ) : isBestseller ? (
-          <span className="
-            absolute
-            top-4
-            left-4
-            bg-[#FFFAF6]/95
-            backdrop-blur-sm
-            text-[#4A3F3F]
-            text-[10px]
-            uppercase
-            tracking-wider
-            px-3
-            py-1.5
-            rounded-full
-          ">
+          <span
+            className={`${badgeBase} bg-[#FFFAF6]/95 backdrop-blur-sm text-[#4A3F3F]`}
+          >
             Bestseller
           </span>
         ) : null}
 
         {/* Arrow */}
-        <div className="absolute bottom-4 right-4" aria-hidden="true">
+        <div
+          className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4"
+          aria-hidden="true"
+        >
 
           <span className="
             w-10
@@ -193,14 +173,15 @@ function ProductCard({ product }) {
 
 
       {/* PRODUCT INFO */}
-      <div className="p-5">
+      <div className="p-3 sm:p-5">
 
         <p className="
-          text-[10px]
+          text-[9px] sm:text-[10px]
           uppercase
-          tracking-[0.2em]
+          tracking-[0.15em] sm:tracking-[0.2em]
           text-[#7A9E88]
           font-semibold
+          truncate
         ">
           {product.category}
         </p>
@@ -209,12 +190,14 @@ function ProductCard({ product }) {
 
           <h2 className="
             font-serif
-            text-xl
-            mt-2
+            text-base sm:text-xl
+            leading-snug
+            mt-1 sm:mt-2
             text-[#4A3F3F]
             group-hover:text-[#7A9E88]
             transition-colors
             duration-300
+            line-clamp-2 sm:line-clamp-none
           ">
             {product.name}
           </h2>
@@ -222,9 +205,9 @@ function ProductCard({ product }) {
         </Link>
 
         <p className="
-          text-sm
+          text-xs sm:text-sm
           text-[#817474]
-          mt-2
+          mt-1.5 sm:mt-2
           line-clamp-2
           leading-relaxed
         ">
@@ -233,9 +216,9 @@ function ProductCard({ product }) {
 
 
         {/* PRICE + CART */}
-        <div className="flex items-center justify-between mt-5">
+        <div className="flex items-center justify-between gap-2 mt-3 sm:mt-5">
 
-          <p className="font-semibold text-[#4A3F3F]">
+          <p className="font-semibold text-sm sm:text-base text-[#4A3F3F]">
             ${price.toFixed(2)}
           </p>
 
@@ -250,12 +233,12 @@ function ProductCard({ product }) {
             className={`
               flex
               items-center
-              gap-2
-              px-4
-              py-2
+              gap-1 sm:gap-2
+              px-3 py-1.5 sm:px-4 sm:py-2
               rounded-full
-              text-xs
+              text-[11px] sm:text-xs
               font-semibold
+              whitespace-nowrap
               transition-all
               duration-300
               focus:outline-none
